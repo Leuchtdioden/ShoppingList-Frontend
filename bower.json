@@ -1,0 +1,16 @@
+{
+  "name": "ShoppingList-Frontend",
+  "homepage": "https://github.com/Leuchtdioden/ShoppingList-Frontend",
+  "description": "Front End for the ShoppingList-App",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
