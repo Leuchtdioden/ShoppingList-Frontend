@@ -1,0 +1,43 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<dom-module id="list-overview">
+
+  <template>
+    <template is="dom-repeat" items="{{lists}}">
+      <li><a href="localhost:3000/list/{{item.id}}">{{item.title}}</a></li>
+    </template>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'list-overview',
+
+      properties: {
+
+      },
+
+      ready: function() {
+        var self = this;
+        var xhr = new XMLHttpRequest();
+        var baseUrl = 'localhost:3000';
+        self.lists = [];
+
+        xhr.open('GET', baseUrl + '/');
+        xhr.send();
+        xhr.onreadystatechange = function() {
+
+          if(xhr.readyState === 4 && xhr.status === 200) {
+            var lists = [];
+            var response = JSON.parse(xhr.responseText);
+
+            for(var i = 0; i < response.length; i++) {
+              var listUrl = baseUrl + '/list/' + response[i].id;
+              lists.push(response);
+            }
+
+            self.lists = lists;
+          }
+        }
+      }
+    });
+  </script>
+</dom-module>
