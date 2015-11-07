@@ -14,6 +14,8 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.2.0"
+    "polymer": "Polymer/polymer#^1.2.0",
+    "iron-a11y-keys": "PolymerElements/iron-a11y-keys#^1.0.0",
+    "superagent": "~1.4.0"
   }
 }

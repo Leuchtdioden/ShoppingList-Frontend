@@ -37,7 +37,7 @@ gulp.task('copy_html_files', function() {
 
 gulp.task('copy_polymer_components', function() {
   gulp.src(srcDirectory + '/polymer_components/**/*.html')
-      .pipe(gulp.dest(outputDirectory + '/polymer_components'));
+      .pipe(gulp.dest(outputDirectory));
 });
 
 gulp.task('watch_css', function() {

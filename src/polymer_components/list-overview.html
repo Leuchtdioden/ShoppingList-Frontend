@@ -1,10 +1,12 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
-<dom-module id="list-overview">
 
+<dom-module id="list-overview">
   <template>
     <template is="dom-repeat" items="{{lists}}">
       <li><a href="localhost:3000/list/{{item.id}}">{{item.title}}</a></li>
     </template>
+    <input id="new-item" placeholder="Neues Item">
+    <button id="new-item-submit" value="Submit" on-click="submit_item"></button>
   </template>
 
   <script>
@@ -12,9 +14,23 @@
       is: 'list-overview',
 
       properties: {
-
+        new_item: {
+          type: String,
+          value: ""
+        }
       },
 
+
+
+      submit_item: function() {
+        var self = this;
+        var xhr = new XMLHttpRequest();
+        var baseUrl = 'http://localhost:3000';
+        self.lists = [];
+
+        xhr.open('POST', baseUrl + '');
+        xhr.send();
+      },
       ready: function() {
         var self = this;
         var xhr = new XMLHttpRequest();
@@ -24,7 +40,6 @@
         xhr.open('GET', baseUrl + '');
         xhr.send();
         xhr.onreadystatechange = function() {
-
           if(xhr.readyState === 4 && xhr.status === 200) {
             var lists = [];
             var response = JSON.parse(xhr.responseText);
