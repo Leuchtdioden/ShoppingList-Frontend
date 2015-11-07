@@ -1,0 +1,62 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<dom-module id="shopping-list">
+
+    <style>
+        #header {
+            width: 100%;
+            border-bottom: solid;
+            border-width: 1px;
+            border-color: darkgray;
+        }
+        :host {
+            padding: 1px;
+            border: solid;
+            border-width: 1px;
+            border-color: darkgray;
+        }
+        .item {
+            padding: 5px;
+            width: inherit;
+            border-bottom: solid;
+            border-width: 1px;
+            border-color: darkgray;
+        }
+
+    </style>
+    <template>
+        <div id="header">
+            <span>{{name}}</span>
+            <button id="add-btn" onclick="newItem"></button>
+        </div>
+        <div id="shopping-list">
+            <template is="dom-repeat" items="{{list}}">
+                <div class="item"></div>
+            </template>
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'list',
+
+            properties: {
+                list_name: {
+                    type: String,
+                    value: ""
+                },
+                id: {
+                    type: String,
+                    value: ""
+                }
+            },
+
+            newItem: function() {
+            },
+            ready: function() {
+            },
+            sync: function() {
+
+            }
+        });
+    </script>
+</dom-module>
